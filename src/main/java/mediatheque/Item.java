@@ -13,6 +13,7 @@ public abstract class Item {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public abstract void accept(ItemVisitors visitor);
 
 	public abstract void print() ;
 

@@ -12,12 +12,15 @@ public class Mediatheque {
 	}
 	
 	public void printCatalog() {
+		CatalogVisitors myVisitor = new CatalogVisitors();
 		for (Item i : items)
-			i.print();
+			i.accept(myVisitor);
 	}
 	
 	public void printOnlyBooks() {
-		throw new UnsupportedOperationException("Not supported yet."); 
+		BookVisitors myVisitor = new BookVisitors();
+		for (Item i : items)
+			i.accept(myVisitor);
 		/*
 		//avec instanceof
 		for (Item i : items)
@@ -27,7 +30,8 @@ public class Mediatheque {
 	}
 
 	public void printOnlyCDs() {
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CDVisitors myVisitor = new CDVisitors();
+		for (Item i : items)
+			i.accept(myVisitor);
 	}
-
 }
